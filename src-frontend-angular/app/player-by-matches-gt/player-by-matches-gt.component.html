@@ -1,0 +1,27 @@
+<div>
+  <label for="minTotalMatches">Minimum Total Matches:</label>
+  <input type="number" id="minTotalMatches" [(ngModel)]="minTotalMatches" name="minTotalMatches">
+  <button (click)="playersByTotalMatchesgt()">Find Players</button>
+</div>
+
+<div *ngIf="players.length">
+  <h2>Players with Matches Greater Than {{ minTotalMatches }}</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Player ID</th>
+        <th>Name</th>
+        <th>Matches</th>
+        <th>Team Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <td>{{ player.playerId }}</td>
+        <td>{{ player.playerName }}</td>
+        <td>{{ player.totalMatches }}</td>
+        <td>{{player.teamName}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
